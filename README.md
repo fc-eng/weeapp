@@ -1,2 +1,2 @@
 # weeapp
-Seoul First-Class Private Studying Application written in Express
+Seoul First-Class Private Academy Studying Application written in Express
