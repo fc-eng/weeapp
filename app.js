@@ -10,7 +10,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 //mongoose를 통한 mongoDB 연동
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/local', {useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology:true})
+var MongoURI = 'mongodb://fcmaster300:ai**20191000@ds249428.mlab.com:49428/heroku_zbxtqswh';
+mongoose.connect(MongoURI, {useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology:true})
   .then(() => console.log('connection successful'))
   .catch((err) => console.error(err))
 
@@ -28,7 +29,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('express-session')({
+app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
